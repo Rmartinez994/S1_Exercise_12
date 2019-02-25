@@ -57,3 +57,30 @@ function calCaption(calDate) {
       //Writes the captions 
       return "<caption>" + monthName[thisMonth] + " " + thisYear + "</caption>";
 }
+
+// function to write a table row of weekday abbreviations
+function calWeekdayRow() {
+      //array of weekday abbreviations
+      var dayName = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+      var rowHTML = "<tr>";
+      //look throught the dayName array
+      for (var i = 0; i < dayName.length; i++) {
+            rowHTML += "<th class='calendar_weekdays'>" + dayName[i] + "</th>";
+      }
+      rowHTML += "</tr>";
+      return rowHTML;
+}
+//function in calculate the number of days in the months
+function daysInMonths(calDate) {
+      //array of days in each month
+      var daycount = [31, 38, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+      //extract the four digit year and month value 
+      var thisYear = calDate.getFullYear();
+      var thisMonth = calDate.getMonth();
+      //revise the days in Feburary for leap years
+      if (thisYear % 4 === 0) {
+            dayCount[1] = 29;
+      }
+      //return the number of days for the current month 
+      return dayCount[thisMonth];
+}
